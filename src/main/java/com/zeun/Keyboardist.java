@@ -1,8 +1,8 @@
 package com.zeun;
 
-public class keyboardist extends Musician implements Playable{
+public class Keyboardist extends Musician implements Playable{
 
-    public keyboardist(String name) {
+    public Keyboardist(String name) {
         super(name, "Keyboard");
     }
 

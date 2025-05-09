@@ -10,7 +10,7 @@ public class Application {
                 new Guitarist("민선", 4),
                 new Guitarist("유창", 6),
                 new Drummer("지은"),
-                new keyboardist("채원")
+                new Keyboardist("채원")
         };
 
         for(Musician member: bandMember){
