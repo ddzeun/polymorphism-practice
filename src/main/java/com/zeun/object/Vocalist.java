@@ -1,6 +1,8 @@
-package com.zeun;
+package com.zeun.object;
 
-public class Vocalist extends Musician implements Singable{
+import com.zeun.interfaces.Singable;
+
+public class Vocalist extends Musician implements Singable {
 
     public Vocalist(String name) {
         super(name, "Vocal");

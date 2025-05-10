@@ -1,6 +1,8 @@
-package com.zeun;
+package com.zeun.object;
 
-public class Keyboardist extends Musician implements Playable{
+import com.zeun.interfaces.Playable;
+
+public class Keyboardist extends Musician implements Playable {
 
     public Keyboardist(String name) {
         super(name, "Keyboard");

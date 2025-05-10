@@ -1,6 +1,8 @@
-package com.zeun;
+package com.zeun.object;
 
-public class Drummer extends Musician implements Playable{
+import com.zeun.interfaces.Playable;
+
+public class Drummer extends Musician implements Playable {
 
     public Drummer(String name) {
         super(name, "Drum");

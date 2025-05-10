@@ -1,6 +1,9 @@
-package com.zeun;
+package com.zeun.object;
 
-public class Guitarist extends Musician implements Playable, Singable{
+import com.zeun.interfaces.Playable;
+import com.zeun.interfaces.Singable;
+
+public class Guitarist extends Musician implements Playable, Singable {
 
     private int numberOfLines;
 

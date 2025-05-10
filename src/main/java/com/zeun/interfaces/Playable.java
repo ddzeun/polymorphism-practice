@@ -1,4 +1,4 @@
-package com.zeun;
+package com.zeun.interfaces;
 
 public interface Playable {
 

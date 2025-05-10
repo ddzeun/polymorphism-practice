@@ -1,4 +1,4 @@
-package com.zeun;
+package com.zeun.object;
 
 // 추상 클래스 Musician
 public abstract class Musician {
@@ -34,5 +34,5 @@ public abstract class Musician {
     }
 
     // 추상 메소드 perform, 연주는 하지만 각자의 역할에 따라 어떤 연주인지 달라짐
-    abstract void perform();
+    public abstract void perform();
 }

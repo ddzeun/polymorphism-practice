@@ -1,36 +1,46 @@
 package com.zeun;
 
+import com.zeun.object.*;
+
+import java.util.Scanner;
+
 public class Application {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BandService bandService = new BandService();
 
-        Application application = new Application();
-        Musician[] bandMember = {
-                new Vocalist("수연"),
-                new Guitarist("민선", 4),
-                new Guitarist("유창", 6),
-                new Drummer("지은"),
-                new Keyboardist("채원")
-        };
+        while (true) {
+            System.out.println("========= 할 일을 선택해주세요 =========");
+            System.out.println("1. 밴드 만들기");
+            System.out.println("2. 멤버 확인하기");
+            System.out.println("3. 멤버 추가하기");
+            System.out.println("4. 밴드 연주하기");
+            System.out.println("9. 프로그램 종료하기");
+            System.out.print("선택할 번호: ");
 
-        for(Musician member: bandMember){
-            member.checkStatus();
-            System.out.println();
-        }
+            int select = sc.nextInt();
+            sc.nextLine();
 
-        for(Musician member: bandMember) {
-            member.perform();
-            System.out.println();
-
-            if (member instanceof Guitarist) {
-                ((Guitarist) member).breakLine();
-                System.out.println();
+            switch (select) {
+                case 1:
+                    bandService.makeBand();
+                    break;
+                case 2:
+                    bandService.showAllMembers();
+                    break;
+                case 3:
+                    bandService.addMember();
+                    break;
+                case 4:
+                    bandService.performBand();
+                    break;
+                case 9:
+                    System.out.println("프로그램을 종료합니다.");
+                    return;
+                default:
+                    System.out.println("잘못된 번호를 선택하셨습니다.");
             }
         }
-    }
-
-    public Musician getRandomMember(Musician[] musicians) {
-        int random = (int) (Math.random() * 5);
-        return musicians[random];
     }
 }
