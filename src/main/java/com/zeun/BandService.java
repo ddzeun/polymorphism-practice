@@ -8,6 +8,7 @@ public class BandService {
 
     Scanner sc = new Scanner(System.in);
     MemberRepository repository = new MemberRepository();
+    MemberFinder finder = new MemberFinder();
 
     public void makeBand() {
         if (repository.createBand()) {
@@ -18,7 +19,7 @@ public class BandService {
     }
 
     public void showAllMembers() {
-        MemberFinder finder = new MemberFinder();
+
         if (repository.isBandCreated) {
             if (finder.findAllMembers()[0] == null) {
                 System.out.println("아직 멤버가 없습니다. 새 멤버를 영입하세요!");
@@ -53,8 +54,7 @@ public class BandService {
     }
 
     public void performBand() {
-
-        if (repository.isBandCreated) {
+        if (finder.findAllMembers()[0] == null) {
             for (Musician member: repository.findAllMembers()) {
                 if (member != null) {
                     member.perform();
