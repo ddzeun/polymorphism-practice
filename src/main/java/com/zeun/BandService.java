@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class BandService {
 
     Scanner sc = new Scanner(System.in);
-    MemberRepository repository = new MemberRepository();
     MemberFinder finder = new MemberFinder();
 
     public void makeBand() {
-        if (repository.createBand()) {
+
+        if (!isBandExisted()) {
             System.out.println("짝짝짝!! 밴드가 결성되었습니다!!!");
         } else {
             System.out.println("이미 밴드가 존재합니다.");
@@ -20,7 +20,7 @@ public class BandService {
 
     public void showAllMembers() {
 
-        if (repository.isBandCreated) {
+        if (isBandExisted()) {
             if (finder.findAllMembers()[0] == null) {
                 System.out.println("아직 멤버가 없습니다. 새 멤버를 영입하세요!");
             } else {
@@ -37,9 +37,10 @@ public class BandService {
     }
 
     public void addMember() {
+
         MemberRegister memberRegister = new MemberRegister();
 
-        if (repository.isBandCreated) {
+        if (isBandExisted()) {
             System.out.print("추가할 멤버의 이름을 입력하세요: ");
             String name = sc.next();
 
@@ -54,8 +55,9 @@ public class BandService {
     }
 
     public void performBand() {
+
         if (finder.findAllMembers()[0] == null) {
-            for (Musician member: repository.findAllMembers()) {
+            for (Musician member: MemberRepository.findAllMembers()) {
                 if (member != null) {
                     member.perform();
                 }
@@ -63,5 +65,10 @@ public class BandService {
         } else {
             System.out.println("밴드가 존재하지 않습니다. 먼저 밴드를 결성하세요.");
         }
+    }
+
+    private boolean isBandExisted() {
+
+        return MemberRepository.isBandCreated;
     }
 }

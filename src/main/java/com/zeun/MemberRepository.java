@@ -13,12 +13,9 @@ public class MemberRepository {
     }
 
     public static boolean createBand() {
-        if (isBandCreated) {
-            return false;
-        } else {
-            isBandCreated = true;
-            return true;
-        }
+
+        isBandCreated = true;
+        return true;
     }
 
     public static boolean store(Musician newMusician) {
